@@ -5,16 +5,16 @@ import json
 
 def send_email(event, context):
     email = event['email']
-    response = {
-    }
+    response = {}
     try:
-        remetente = ''
-        assunto = ''
+        sender_email = "my@gmail.com"  # Enter your address
+        receiver_email = "your@gmail.com"  # Enter receiver address
+        subject = ''
         text = ''
         msg = '\r\n'.join([
-          'From: %s' % remetente,
-          'To: %s' % email,
-          'Subject: %s' % assunto,
+          'From: %s' % sender_email,
+          'To: %s' % receiver_email,
+          'Subject: %s' % subjet,
           '',
           '%s' % text
         ])
@@ -22,7 +22,7 @@ def send_email(event, context):
         server = smtplib.SMTP('')
         server.starttls()
         server.login('', '')
-        server.sendmail(remetente, email, msg)
+        server.sendmail(sender_email, receiver_email, msg)
         server.quit()
         response["statusCode"] = 200
         response["body"] = '{"status":true}'
