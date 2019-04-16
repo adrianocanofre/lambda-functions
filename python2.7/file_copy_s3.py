@@ -2,7 +2,6 @@ import boto3
 import json
 from botocore.exceptions import ClientError
 
-
 s3 = boto3.resource('s3')
 
 def lambda_handler (event, context):
